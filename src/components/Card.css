@@ -7,3 +7,11 @@
   background-color: white;
   transform: scale(1.05);
 }
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+p {
+  font-size: 14px;
+}

@@ -12,6 +12,15 @@ export type Data = {
 export default function ProvidersList() {
   const [data, setData] = useState<Data[]>([]);
   const [loading, setLoading] = useState(true);
+  const [filteredData, setFilteredData] = useState<Data[]>([]);
+  const [input, setInput] = useState("");
+
+  const handleInput = (e) => {
+    const value = e.target.value;
+    setInput(value);
+    const filteredValues = data.filter((item) => item?.name.includes(value));
+    setFilteredData(filteredValues);
+  };
 
   useEffect(() => {
     const fetchData = () => {
@@ -19,7 +28,7 @@ export default function ProvidersList() {
         fetch("./data.json")
           .then((res) => res.json())
           .then((data) => {
-            setData(data), setLoading(false);
+            setData(data), setFilteredData(data), setLoading(false);
           });
       }, 1000);
     };
@@ -35,16 +44,24 @@ export default function ProvidersList() {
           <h2 style={{ color: "#e6a042" }}>
             Learning Support Provider Directory Module
           </h2>
+          <input
+            type="text"
+            value={input}
+            onChange={handleInput}
+            placeholder="Search"
+            style={{ width: "200px", height: "20px" }}
+          />
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(250px, auto))",
+              justifyContent: "center",
               columnGap: "25px",
               rowGap: "15px",
               padding: "20px",
             }}
           >
-            {data?.map((item) => {
+            {filteredData?.map((item) => {
               return <Card data={item} />;
             })}
           </div>

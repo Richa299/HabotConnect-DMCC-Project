@@ -1,5 +1,6 @@
 import type { Data } from "../ProvidersList";
 import "./Card.css";
+import img from "../assets/star.webp";
 
 type CardProps = {
   data: Data;
@@ -15,10 +16,18 @@ export default function Card({ data }: CardProps) {
         }}
         className="card"
       >
-        <p>{name}</p>
+        <h4>{name}</h4>
         <p>{specialization}</p>
         <p>{location}</p>
-        <p>{rating}</p>
+        <div className="rating">
+          <img
+            src={img}
+            width="20px"
+            height="20px"
+            style={{ marginRight: "5px" }}
+          />
+          <p>{rating}</p>
+        </div>
       </div>
     </>
   );
