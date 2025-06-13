@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "./components/Card";
+import { Link } from "react-router-dom";
 
 export type Data = {
   id: number;
@@ -62,7 +63,15 @@ export default function ProvidersList() {
             }}
           >
             {filteredData?.map((item) => {
-              return <Card data={item} />;
+              return (
+                <Link
+                  to={`/providers/${item?.id}`}
+                  state={{ item }}
+                  style={{ color: "black", textDecoration: "none" }}
+                >
+                  <Card data={item} />
+                </Link>
+              );
             })}
           </div>
         </>
