@@ -1,6 +1,9 @@
-.card:hover {
-  background-color: red;
-}
 .card {
-  background-color: lightblue;
+  background-color: #e5e3df;
+  box-shadow: 2px 5px 9px darkgoldenrod;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  background-color: white;
+  transform: scale(1.05);
 }

@@ -32,11 +32,13 @@ export default function ProvidersList() {
         <p>Loading...</p>
       ) : (
         <>
-          <h2>Learning Support Provider Directory Module</h2>
+          <h2 style={{ color: "#e6a042" }}>
+            Learning Support Provider Directory Module
+          </h2>
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "3fr 3fr 3fr",
+              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
               columnGap: "25px",
               rowGap: "15px",
               padding: "20px",
