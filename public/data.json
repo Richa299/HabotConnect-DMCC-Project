@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Ananya Sharma",
+    "specialization": "Dyslexia Support",
+    "location": "Mumbai, Andheri",
+    "rating": 4.8,
+    "shortDescription": "Expert in child-focused dyslexia interventions.",
+    "longDescription": "Dr. Ananya Sharma has over 10 years of experience helping children with dyslexia improve reading and learning skills through tailored programs and one-on-one coaching.",
+    "contactEmail": "ananya.sharma@example.com",
+    "phoneNumber": "+91-9876543210"
+  },
+  {
+    "id": 2,
+    "name": "Mr. Rahul Mehta",
+    "specialization": "ADHD Coaching",
+    "location": "Delhi, Saket",
+    "rating": 4.5,
+    "shortDescription": "Certified ADHD coach for teens and young adults.",
+    "longDescription": "Rahul Mehta specializes in executive functioning and behavioral strategies for managing ADHD. He offers both in-person and online coaching for students and professionals.",
+    "contactEmail": "rahul.mehta@example.com",
+    "phoneNumber": "+91-9811122233"
+  },
+  {
+    "id": 3,
+    "name": "Ms. Priya Nair",
+    "specialization": "Dyslexia Support",
+    "location": "Bangalore, Whitefield",
+    "rating": 4.2,
+    "shortDescription": "Language and literacy specialist.",
+    "longDescription": "Priya Nair is an educational therapist with a focus on literacy support for children with dyslexia. She uses evidence-based approaches to improve phonemic awareness and comprehension.",
+    "contactEmail": "priya.nair@example.com",
+    "phoneNumber": "+91-9900990099"
+  },
+  {
+    "id": 4,
+    "name": "Dr. Akshay Kapoor",
+    "specialization": "ADHD Coaching",
+    "location": "Pune, Kothrud",
+    "rating": 4.9,
+    "shortDescription": "Holistic ADHD support for working professionals.",
+    "longDescription": "Dr. Kapoor combines coaching, mindfulness, and productivity techniques to help adults with ADHD improve their personal and professional lives.",
+    "contactEmail": "akshay.kapoor@example.com",
+    "phoneNumber": "+91-9123456789"
+  },
+  {
+    "id": 5,
+    "name": "Mrs. Neha Joshi",
+    "specialization": "Dyslexia Support",
+    "location": "Chennai, T. Nagar",
+    "rating": 4.3,
+    "shortDescription": "Remedial educator with a focus on early intervention.",
+    "longDescription": "With a background in special education, Neha Joshi helps young learners with dyslexia build foundational reading and writing skills through structured programs.",
+    "contactEmail": "neha.joshi@example.com",
+    "phoneNumber": "+91-9898989898"
+  }
+]
