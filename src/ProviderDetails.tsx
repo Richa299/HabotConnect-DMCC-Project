@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import img from "./assets/star.webp";
+import "./ProviderDetails.css";
 
 export default function ProviderDetails() {
   const { state } = useLocation();
@@ -8,29 +9,9 @@ export default function ProviderDetails() {
     navigate(-1);
   };
   return (
-    <div
-      style={{
-        backgroundColor: "#1b1919",
-        margin: 0,
-        padding: "20px",
-        height: "90vh",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <div
-          style={{
-            backgroundColor: "beige",
-            width: "500px",
-            height: "500px",
-            borderRadius: "5px",
-          }}
-        >
+    <div className="providerDetail">
+      <div className="providerDetail_card">
+        <div className="providerDetail_card_inner">
           <h3>{state.item?.name}</h3>
           <p>{state.item.specialization}</p>
           <p>{state.item.location}</p>
@@ -41,10 +22,11 @@ export default function ProviderDetails() {
               height="20px"
               style={{ marginRight: "5px" }}
             />
+            <p>{state.item.rating}</p>
           </div>
-          <p>{state.item.rating}</p>
           <p style={{ fontSize: "16px" }}>{state.item.longDescription}</p>
-          <p>Contact Details</p>
+          <hr />
+          <h4>Contact Details</h4>
           <div>
             <p>{state.item.contactEmail}</p>
             <p>{state.item.phoneNumber}</p>
