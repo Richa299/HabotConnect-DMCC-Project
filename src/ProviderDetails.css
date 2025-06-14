@@ -17,6 +17,7 @@
   height: 450px;
   border-radius: 5px;
   padding: 20px;
+  box-shadow: 1px 5px 30px 1px #00ffbd;
 }
 .rating {
   display: flex;
@@ -32,4 +33,10 @@ button {
 button:hover {
   background-color: black;
   color: white;
+}
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }

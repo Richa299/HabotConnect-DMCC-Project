@@ -8,7 +8,7 @@ import "./ProviderDetails.css";
 
 export default function ProviderDetails() {
   const { id } = useParams();
-  const [detail, setDetail] = useState<Data[]>([]);
+  const [providerDetail, setProviderDetail] = useState<Data[]>([]);
   const navigate = useNavigate();
   const handleButtonClick = () => {
     navigate(-1);
@@ -16,15 +16,18 @@ export default function ProviderDetails() {
   useEffect(() => {
     fetch("/data.json")
       .then((res) => res.json())
-      .then((data) => setDetail(data.filter((item: any) => item.id == id)));
+      .then((data) =>
+        setProviderDetail(data.filter((item: any) => item.id == id))
+      );
   }, []);
-  return (
+
+  return providerDetail.length > 0 ? (
     <div className="providerDetail">
       <div className="providerDetail_card">
         <div className="providerDetail_card_inner">
-          <h3>{detail[0]?.name}</h3>
-          <p>{detail[0]?.specialization}</p>
-          <p>{detail[0]?.location}</p>
+          <h3>{providerDetail[0]?.name}</h3>
+          <p>{providerDetail[0]?.specialization}</p>
+          <p>{providerDetail[0]?.location}</p>
           <div className="rating">
             <img
               src={img}
@@ -32,19 +35,23 @@ export default function ProviderDetails() {
               height="20px"
               style={{ marginRight: "5px" }}
             />
-            <p>{detail[0]?.rating}</p>
+            <p>{providerDetail[0]?.rating}</p>
           </div>
-          <p style={{ fontSize: "16px" }}>{detail[0]?.longDescription}</p>
+          <p style={{ fontSize: "14px" }}>
+            {providerDetail[0]?.longDescription}
+          </p>
           <hr />
-          <h4>Contact Detail[0]s</h4>
+          <h4>Contact Details</h4>
           <div>
-            <p>{detail[0]?.contactEmail}</p>
-            <p>{detail[0]?.phoneNumber}</p>
+            <p>{providerDetail[0]?.contactEmail}</p>
+            <p>{providerDetail[0]?.phoneNumber}</p>
           </div>
 
           <button onClick={handleButtonClick}>Back to list</button>
         </div>
       </div>
     </div>
+  ) : (
+    <div className="error">Provider does not exist !</div>
   );
 }
