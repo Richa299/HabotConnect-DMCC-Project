@@ -38,7 +38,7 @@ export default function ProvidersList() {
     [data]
   );
 
-  const handleInput = (e) => {
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setInput(value);
     filteredValue(value);
