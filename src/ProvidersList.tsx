@@ -8,6 +8,9 @@ export type Data = {
   location: string;
   rating: number;
   specialization: string;
+  longDescription: string;
+  contactEmail: string;
+  phoneNumber: string;
 };
 function debounce(fn: any, delay: number) {
   let timer: number;
@@ -86,6 +89,7 @@ export default function ProvidersList() {
                   to={`/providers/${item?.id}`}
                   state={{ item }}
                   style={{ color: "black", textDecoration: "none" }}
+                  key={item.id}
                 >
                   <Card data={item} />
                 </Link>

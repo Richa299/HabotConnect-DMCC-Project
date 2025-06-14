@@ -1,20 +1,30 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+import type { Data } from "./ProvidersList";
+
 import img from "./assets/star.webp";
 import "./ProviderDetails.css";
 
 export default function ProviderDetails() {
-  const { state } = useLocation();
+  const { id } = useParams();
+  const [detail, setDetail] = useState<Data[]>([]);
   const navigate = useNavigate();
   const handleButtonClick = () => {
     navigate(-1);
   };
+  useEffect(() => {
+    fetch("/data.json")
+      .then((res) => res.json())
+      .then((data) => setDetail(data.filter((item: any) => item.id == id)));
+  }, []);
   return (
     <div className="providerDetail">
       <div className="providerDetail_card">
         <div className="providerDetail_card_inner">
-          <h3>{state.item?.name}</h3>
-          <p>{state.item.specialization}</p>
-          <p>{state.item.location}</p>
+          <h3>{detail[0]?.name}</h3>
+          <p>{detail[0]?.specialization}</p>
+          <p>{detail[0]?.location}</p>
           <div className="rating">
             <img
               src={img}
@@ -22,14 +32,14 @@ export default function ProviderDetails() {
               height="20px"
               style={{ marginRight: "5px" }}
             />
-            <p>{state.item.rating}</p>
+            <p>{detail[0]?.rating}</p>
           </div>
-          <p style={{ fontSize: "16px" }}>{state.item.longDescription}</p>
+          <p style={{ fontSize: "16px" }}>{detail[0]?.longDescription}</p>
           <hr />
-          <h4>Contact Details</h4>
+          <h4>Contact Detail[0]s</h4>
           <div>
-            <p>{state.item.contactEmail}</p>
-            <p>{state.item.phoneNumber}</p>
+            <p>{detail[0]?.contactEmail}</p>
+            <p>{detail[0]?.phoneNumber}</p>
           </div>
 
           <button onClick={handleButtonClick}>Back to list</button>
