@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Card from "./components/Card";
 import { Link } from "react-router-dom";
 
@@ -9,6 +9,15 @@ export type Data = {
   rating: number;
   specialization: string;
 };
+function debounce(fn: any, delay: number) {
+  let timer: number;
+  return function (value: any) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn(value);
+    }, delay);
+  };
+}
 
 export default function ProvidersList() {
   const [data, setData] = useState<Data[]>([]);
@@ -16,11 +25,20 @@ export default function ProvidersList() {
   const [filteredData, setFilteredData] = useState<Data[]>([]);
   const [input, setInput] = useState("");
 
+  const filteredValue = useCallback(
+    debounce((input: string) => {
+      const arr = data.filter((item) =>
+        item?.name.toLowerCase().includes(input.toLowerCase())
+      );
+      setFilteredData(arr);
+    }, 500),
+    [data]
+  );
+
   const handleInput = (e) => {
     const value = e.target.value;
     setInput(value);
-    const filteredValues = data.filter((item) => item?.name.includes(value));
-    setFilteredData(filteredValues);
+    filteredValue(value);
   };
 
   useEffect(() => {
